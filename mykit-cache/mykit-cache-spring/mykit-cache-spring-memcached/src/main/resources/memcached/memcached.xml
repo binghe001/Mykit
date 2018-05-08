@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:cache="http://www.springframework.org/schema/cache"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+ 						http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+ 						http://www.springframework.org/schema/context 
+ 						http://www.springframework.org/schema/context/spring-context-4.0.xsd
+						http://www.springframework.org/schema/cache 
+						http://www.springframework.org/schema/cache/spring-cache-4.0.xsd"
+						default-autowire="byName">
+ 	
+ 	<!-- ===================================  配置Memcached =============================== -->
+ 	 <!-- 开启缓存 -->  
+   <cache:annotation-driven cache-manager="cacheManager" proxy-target-class="true" />  
+    
+ 	 <bean id="memcachedPool" class="com.danga.MemCached.SockIOPool"
+		factory-method="getInstance" init-method="initialize" destroy-method="shutDown">
+	   <constructor-arg>
+			<value>neeaMemcachedPool</value>
+		</constructor-arg>
+		<property name="servers">
+			<list>
+				<value>${memcache.server}</value>
+			</list>
+		</property>
+		<property name="initConn">
+			<value>${memcache.initConn}</value>
+		</property>
+		<property name="minConn">
+			<value>${memcache.minConn}</value>
+		</property>
+		<property name="maxConn">
+			<value>${memcache.maxConn}</value>
+		</property>
+		<property name="maintSleep">
+			<value>${memcache.maintSleep}</value>
+		</property>
+		<property name="nagle">
+			<value>${memcache.nagle}</value>
+		</property>
+		<property name="socketTO">
+			<value>${memcache.socketTO}</value>
+		</property>
+	</bean>
+	
+	<!-- 配置MemcachedClient -->
+	<bean id="memcachedClient" class="com.danga.MemCached.MemCachedClient">
+		<constructor-arg>
+			<value>neeaMemcachedPool</value>
+		</constructor-arg>
+	</bean>
+	
+	<!-- 配置自定义的安全缓存ConcurrentMemcachedClient -->
+	<bean id="concurrentMemcachedClient" class="io.mykit.cache.spring.memcached.sync.ConcurrentMemcachedClient">
+		<property name="memCachedClient" ref="memcachedClient"/>
+	</bean>
+	
+	<!-- 配置缓存管理 -->
+	<bean id="cacheManager" class="io.mykit.cache.spring.memcached.MemcachedCacheManager">
+		<property name="memcachedClient" ref="memcachedClient"/>
+		<!-- 配置缓存时间 --> 
+		<property name="configMap">
+			 <map>
+			 	 <!-- key缓存对象名称   value缓存过期时间 --> 
+			 	 <entry key="systemCache" value="3600"/>
+			 </map>
+		</property>
+	</bean>
+</beans>

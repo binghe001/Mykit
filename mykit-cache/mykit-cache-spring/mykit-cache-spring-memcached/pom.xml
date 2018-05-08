@@ -12,17 +12,17 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
-  <dependencies>
+	  <dependencies>
+	  	<dependency>    
+	    <groupId>commons-pool</groupId>    
+	    <artifactId>commons-pool</artifactId>    
+	    <version>1.5.6</version>    
+	  </dependency>  
  	 <dependency>  
 	   <groupId>com.memcached</groupId>  
 	   <artifactId>java_memcached-release</artifactId>  
 	   <version>2.6.6</version>  
 	</dependency>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
+
   </dependencies>
 </project>
