@@ -27,6 +27,7 @@
 		<module>mykit-container</module>
 		<module>mykit-monitor</module>
 		<module>mykit-netty</module>
+		<module>mykit-bigdata</module>
    </modules>
 
   <properties>
