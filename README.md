@@ -10,6 +10,6 @@ QQ：2711098650
 # 项目结构简述
 *	mykit：mykit整体架构
 *	mykit-bigdata：mykit架构中大数据相关的业务
-*	mykit-hadoop：mykit大数据架构中与Hadoop相关的业务
-*	mykit-spark：mykit大数据架构中与spark相关的业务
-*	mykit-storm：mykit大数据架构中与storm相关的业务
+*	mykit-hadoop：mykit-bigdata大数据架构中与Hadoop相关的业务
+*	mykit-spark：mykit-bigdata大数据架构中与spark相关的业务
+*	mykit-storm：mykit-bigdata大数据架构中与storm相关的业务
