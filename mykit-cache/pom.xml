@@ -14,8 +14,6 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <modules>
-  	<module>mykit-cache-memcached</module>
-    <module>mykit-cache-redis</module>
     <module>mykit-cache-spring</module>
   </modules>
 </project>
