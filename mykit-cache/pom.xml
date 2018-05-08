@@ -7,9 +7,16 @@
     <artifactId>mykit-parent</artifactId>
     <version>1.0.0</version>
   </parent>
-  <artifactId>mykit-web</artifactId>
+  <groupId>io.mykit</groupId>
+  <artifactId>mykit-cache</artifactId>
+  <version>1.0.0</version>
   <packaging>pom</packaging>
-
+  <distributionManagement>
+    <site>
+      <id>website</id>
+      <url>scp://webhost.company.com/www/website</url>
+    </site>
+  </distributionManagement>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
