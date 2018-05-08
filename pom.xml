@@ -23,6 +23,7 @@
 		<module>mykit-web</module>
 		<module>mykit-spider</module>
 		<module>mykit-tools</module>
+		<module>mykit-filter</module>
    </modules>
 
   <properties>
