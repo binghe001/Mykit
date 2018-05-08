@@ -8,7 +8,8 @@ QQ：2711098650
 一个通用的开源工具集，集Web、Restful服务、分布式服务、分布式数据库、分布式事务、大数据、数据分析、云计算、人工智能、深度学习等为一体的通用解决方案，持续更新中。。。
 
 # 项目结构简述
-mykit-bigdata：mykit架构中大数据相关的业务
-	mykit-hadoop：mykit大数据架构中与Hadoop相关的业务
-	mykit-spark：mykit大数据架构中与spark相关的业务
-	mykit-storm：mykit大数据架构中与storm相关的业务
+mykit：mykit整体架构
+	>mykit-bigdata：mykit架构中大数据相关的业务
+		>>mykit-hadoop：mykit大数据架构中与Hadoop相关的业务
+		>>mykit-spark：mykit大数据架构中与spark相关的业务
+		>>mykit-storm：mykit大数据架构中与storm相关的业务
