@@ -4,21 +4,23 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>io.mykit</groupId>
-    <artifactId>mykit-cache</artifactId>
+    <artifactId>mykit-cache-spring</artifactId>
     <version>1.0.0</version>
   </parent>
-  <artifactId>mykit-cache-spring</artifactId>
-  <packaging>pom</packaging>
-  <distributionManagement>
-    <site>
-      <id>website</id>
-      <url>scp://webhost.company.com/www/website</url>
-    </site>
-  </distributionManagement>
+  <groupId>io.mykit</groupId>
+  <artifactId>mykit-cache-spring-memcached</artifactId>
+  <version>1.0.0</version>
+  <name>mykit-cache-spring-memcached</name>
+  <url>http://maven.apache.org</url>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
-  <modules>
-  	<module>mykit-cache-spring-memcached</module>
-  </modules>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
 </project>
