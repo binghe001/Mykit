@@ -25,6 +25,7 @@
 		<module>mykit-tools</module>
 		<module>mykit-filter</module>
 		<module>mykit-container</module>
+		<module>mykit-monitor</module>
    </modules>
 
   <properties>
