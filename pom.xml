@@ -21,6 +21,7 @@
 		<module>mykit-db</module>
 		<module>mykit-cache</module>
 		<module>mykit-web</module>
+		<module>mykit-spider</module>
    </modules>
 
   <properties>
