@@ -4,10 +4,10 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>io.mykit</groupId>
-    <artifactId>mykit-parent</artifactId>
+    <artifactId>mykit-bigdata</artifactId>
     <version>1.0.0</version>
   </parent>
-  <artifactId>mykit-bigdata</artifactId>
+  <artifactId>mykit-hadoop</artifactId>
   <packaging>pom</packaging>
   <distributionManagement>
     <site>
@@ -18,7 +18,4 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
-  <modules>
-  	<module>mykit-hadoop</module>
-  </modules>
 </project>
