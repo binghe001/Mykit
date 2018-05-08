@@ -16,5 +16,6 @@
   <modules>
   	<module>mykit-cache-memcached</module>
     <module>mykit-cache-redis</module>
+    <module>mykit-cache-spring</module>
   </modules>
 </project>
