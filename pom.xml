@@ -24,6 +24,7 @@
 		<module>mykit-spider</module>
 		<module>mykit-tools</module>
 		<module>mykit-filter</module>
+		<module>mykit-container</module>
    </modules>
 
   <properties>
