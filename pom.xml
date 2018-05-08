@@ -26,6 +26,7 @@
 		<module>mykit-filter</module>
 		<module>mykit-container</module>
 		<module>mykit-monitor</module>
+		<module>mykit-netty</module>
    </modules>
 
   <properties>
