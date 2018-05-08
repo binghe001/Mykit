@@ -29,6 +29,7 @@
 		<module>mykit-netty</module>
 		<module>mykit-bigdata</module>
 		<module>mykit-rpc</module>
+		<module>mykit-media</module>
    </modules>
 
   <properties>
