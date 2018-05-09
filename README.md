@@ -14,6 +14,19 @@ QQ：2711098650
 ## mykit架构
 *	mykit-bigdata：mykit架构中大数据相关的插件
 *	mykit-cache：mykit架构中与缓存相关的插件
+*	mykit-container：mykit架构中的容器插件
+*	mykit-db:mykit架构中的db插件
+*	mykit-filter：mykit架构中的过滤器插件
+*	mykit-media：mykit架构中的多媒体插件
+*	mykit-monitor：mykit架构中的监控插件
+*	mykit-netty：mykit架构中的netty插件
+*	mykit-rpc:mykit架构中的rpc插件
+*	mykit-search：mykit中的搜索引擎插件
+*	mykit-spider：mykit架构中的网络爬虫插件
+*	mykit-tools：mykit架构中的通用工具插件
+*	mykit-web：mykit架构中的web插件
+
+
 
 ## mykit-bigdata架构
 *	mykit-hadoop：mykit-bigdata大数据架构中与Hadoop相关的插件
