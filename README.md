@@ -55,3 +55,9 @@ QQ：2711098650
 ### mykit-tag-spring架构
 *	mykit-tag-spring-customer：mykit-tag-spring架构中自定义spring标签插件
 
+## mykit-mq架构
+*	mykit-mq-spring：mykit-mq架构下mq与Spring整合的插件
+
+### mykit-mq-spring架构
+*	mykit-mq-spring-amq：mykit-mq-spring架构下AMQ(ActiveMQ)和Spring整合的具体实现插件
+

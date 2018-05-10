@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>io.mykit</groupId>
+    <artifactId>mykit-mq-spring</artifactId>
+    <version>1.0.0</version>
+  </parent>
+  <artifactId>mykit-mq-spring-amq</artifactId>
+  <name>mykit-mq-spring-amq</name>
+  <url>http://maven.apache.org</url>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  <dependencies>
+	<dependency>
+	    <groupId>org.apache.commons</groupId>
+	    <artifactId>commons-pool2</artifactId>
+	    <version>2.0</version>
+	</dependency>
+     <dependency>
+		  <groupId>org.apache.activemq</groupId>
+		  <artifactId>activemq-all</artifactId>
+		  <version>5.14.5</version>
+		</dependency>
+  </dependencies>
+</project>
