@@ -25,6 +25,8 @@ QQ：2711098650
 *	mykit-spider：mykit架构中的网络爬虫插件
 *	mykit-tools：mykit架构中的通用工具插件
 *	mykit-web：mykit架构中的web插件
+*	mykit-mq：mykit架构中的消息引擎插件
+*	mykit-tag：mykit架构中的标签插件
 
 
 
@@ -46,4 +48,7 @@ QQ：2711098650
 
 ### mykit-tools-common架构
 *	mykit-tools-ip：mykit-tools-common架构中与IP相关的插件
+
+## mykit-tag架构
+*	mykit-tag-spring：mykit-tag架构中与spring相关的插件
 

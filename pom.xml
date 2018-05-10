@@ -32,6 +32,7 @@
 		<module>mykit-media</module>
     <module>mykit-search</module>
     <module>mykit-tag</module>
+    <module>mykit-mq</module>
   </modules>
    
    <dependencies>
