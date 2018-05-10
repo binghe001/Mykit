@@ -10,6 +10,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @author liuyazhuang
  *
  */
+@SuppressWarnings("resource")
 public class Main {
 	public static void main(String[] args) {
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("lyz-element.xml");
