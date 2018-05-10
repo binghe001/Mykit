@@ -27,6 +27,7 @@ QQ：2711098650
 *	mykit-web：mykit架构中的web插件
 *	mykit-mq：mykit架构中的消息引擎插件
 *	mykit-tag：mykit架构中的标签插件
+*	mykit-annotation：mykit架构中的注解插件
 
 
 

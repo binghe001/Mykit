@@ -33,6 +33,7 @@
     <module>mykit-search</module>
     <module>mykit-tag</module>
     <module>mykit-mq</module>
+    <module>mykit-annotation</module>
   </modules>
    
    <dependencies>
