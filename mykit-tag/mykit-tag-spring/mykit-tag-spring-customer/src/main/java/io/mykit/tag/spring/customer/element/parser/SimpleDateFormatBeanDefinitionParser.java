@@ -14,7 +14,8 @@ import org.w3c.dom.Element;
  */
 public class SimpleDateFormatBeanDefinitionParser extends AbstractSingleBeanDefinitionParser {
 
-    protected Class getBeanClass(Element element) {
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+	protected Class getBeanClass(Element element) {
         return SimpleDateFormat.class;
     }
 
