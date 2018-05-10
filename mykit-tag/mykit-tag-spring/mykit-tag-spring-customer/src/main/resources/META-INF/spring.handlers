@@ -1,1 +1,2 @@
-http\://www.lyz.com/schema/lyz=io.mykit.tag.spring.customer.element.support.MyNamespaceHandler
+http\://www.lyz.com/schema/lyz=io.mykit.tag.spring.customer.support.MyNamespaceHandler
+http\://www.lyz.com/schema/user=io.mykit.tag.spring.customer.support.MyNamespaceHandler

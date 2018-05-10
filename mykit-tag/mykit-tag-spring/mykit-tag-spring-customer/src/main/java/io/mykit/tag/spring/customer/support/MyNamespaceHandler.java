@@ -1,7 +1,8 @@
-package io.mykit.tag.spring.customer.element.support;
+package io.mykit.tag.spring.customer.support;
 
 import org.springframework.beans.factory.xml.NamespaceHandlerSupport;
 
+import io.mykit.tag.spring.customer.beans.parser.UserBeanDefinitionParser;
 import io.mykit.tag.spring.customer.element.parser.SimpleDateFormatBeanDefinitionParser;
 
 /**
@@ -13,5 +14,6 @@ public class MyNamespaceHandler extends NamespaceHandlerSupport {
     @Override
     public void init() {
         registerBeanDefinitionParser("dateformat", new SimpleDateFormatBeanDefinitionParser());
+        registerBeanDefinitionParser("user", new UserBeanDefinitionParser());
     }
 }

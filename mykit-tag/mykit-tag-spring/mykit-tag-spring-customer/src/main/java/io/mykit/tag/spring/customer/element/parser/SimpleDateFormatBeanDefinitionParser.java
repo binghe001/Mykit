@@ -14,11 +14,12 @@ import org.w3c.dom.Element;
  */
 public class SimpleDateFormatBeanDefinitionParser extends AbstractSingleBeanDefinitionParser {
 
-    @SuppressWarnings({ "unchecked", "rawtypes" })
-	protected Class getBeanClass(Element element) {
+    @Override
+	protected Class<?> getBeanClass(Element element) {
         return SimpleDateFormat.class;
     }
-
+    
+    @Override
     protected void doParse(Element element, BeanDefinitionBuilder bean) {
         String pattern = element.getAttribute("pattern");
         bean.addConstructorArgValue(pattern);
