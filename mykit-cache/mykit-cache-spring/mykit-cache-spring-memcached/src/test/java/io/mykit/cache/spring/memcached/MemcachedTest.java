@@ -16,6 +16,7 @@ import io.mykit.cache.spring.memcached.sync.ConcurrentMemcachedClient;
 public class MemcachedTest {
 	
 	private ConcurrentMemcachedClient concurrentMemcachedClient;
+	@SuppressWarnings("unused")
 	private ClassPathXmlApplicationContext context;
 	
 	@Before
