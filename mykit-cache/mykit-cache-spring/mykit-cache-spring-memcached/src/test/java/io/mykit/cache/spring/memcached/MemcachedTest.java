@@ -47,6 +47,7 @@ public class MemcachedTest {
 	/**
 	 * 测试Memcached整合Spring后以Spring注解的形式操作缓存数据
 	 */
+	@SuppressWarnings("resource")
 	@Test
 	public void testAnnotation(){
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring/spring-context.xml");
