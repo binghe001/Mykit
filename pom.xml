@@ -31,6 +31,7 @@
 		<module>mykit-rpc</module>
 		<module>mykit-media</module>
     <module>mykit-search</module>
+    <module>mykit-tag</module>
   </modules>
    
    <dependencies>

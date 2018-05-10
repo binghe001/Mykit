@@ -23,5 +23,7 @@
 						http://www.springframework.org/schema/task  http://www.springframework.org/schema/task/spring-task-4.0.xsd"
 						default-autowire="byName">
 	<context:property-placeholder location="classpath*:properties/memcached.properties"/>
+	<context:annotation-config />
+	<context:component-scan base-package="io.mykit.cache.spring.memcached" />
  	<import resource="classpath:memcached/memcached.xml"/>
 </beans>

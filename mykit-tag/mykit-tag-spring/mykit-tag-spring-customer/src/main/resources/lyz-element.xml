@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:lyz="http://www.lyz.com/schema/lyz"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+ 						http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+ 						http://www.lyz.com/schema/lyz
+        				http://www.lyz.com/schema/lyz.xsd">
+
+    <lyz:dateformat id="dateFormat" pattern="yyyy-MM-dd HH:mm:ss" lenient="true"/>
+</beans>

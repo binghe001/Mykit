@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import io.mykit.cache.spring.memcached.service.MemcachedService;
 import io.mykit.cache.spring.memcached.sync.ConcurrentMemcachedClient;
 
 /**
@@ -15,6 +16,7 @@ import io.mykit.cache.spring.memcached.sync.ConcurrentMemcachedClient;
 public class MemcachedTest {
 	
 	private ConcurrentMemcachedClient concurrentMemcachedClient;
+	private ClassPathXmlApplicationContext context;
 	
 	@Before
 	public void init(){
@@ -39,5 +41,15 @@ public class MemcachedTest {
 	@After
 	public void release(){
 		concurrentMemcachedClient = null;
+	}
+	
+	/**
+	 * 测试Memcached整合Spring后以Spring注解的形式操作缓存数据
+	 */
+	@Test
+	public void testAnnotation(){
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring/spring-context.xml");
+		MemcachedService memcachedService = (MemcachedService) context.getBean("memcachedService");
+		System.out.println(memcachedService.getValue("test_memcached"));
 	}
 }
