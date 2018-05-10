@@ -1,4 +1,4 @@
-package ip.mykit.tools.ip.qqwry;
+package io.mykit.tools.ip.qqwry;
 
 import java.io.UnsupportedEncodingException;
 

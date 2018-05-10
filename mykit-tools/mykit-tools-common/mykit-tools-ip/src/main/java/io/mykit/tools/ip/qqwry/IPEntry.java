@@ -1,4 +1,4 @@
-package ip.mykit.tools.ip.qqwry;
+package io.mykit.tools.ip.qqwry;
 
 /**
  * @author 刘亚壮(补充)

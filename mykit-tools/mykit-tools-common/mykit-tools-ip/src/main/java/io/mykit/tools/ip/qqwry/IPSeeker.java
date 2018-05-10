@@ -17,7 +17,7 @@
 * along with this program; if not, write to the Free Software
 * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 */
-package ip.mykit.tools.ip.qqwry;
+package io.mykit.tools.ip.qqwry;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;

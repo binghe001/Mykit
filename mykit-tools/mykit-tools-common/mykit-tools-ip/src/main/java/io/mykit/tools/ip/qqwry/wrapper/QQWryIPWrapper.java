@@ -1,6 +1,6 @@
-package ip.mykit.tools.ip.qqwry.wrapper;
+package io.mykit.tools.ip.qqwry.wrapper;
 
-import ip.mykit.tools.ip.qqwry.IPSeeker;
+import io.mykit.tools.ip.qqwry.IPSeeker;
 
 /**
  * 包装类
