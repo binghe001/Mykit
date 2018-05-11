@@ -25,7 +25,7 @@
 	<context:annotation-config />
 	<context:component-scan base-package="io.mykit.annotation.spring" />
 	
-	<bean id="loginAdvices" class="io.mykit.annotation.spring.aop.LoginAdvices"/>
+	<bean id="loginAdvices" class="io.mykit.annotation.spring.advices.LoginAdvices"/>
 	
     <!-- aop配置 -->
     <aop:config proxy-target-class="true">

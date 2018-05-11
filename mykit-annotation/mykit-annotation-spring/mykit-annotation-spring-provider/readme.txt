@@ -5,7 +5,7 @@ Adam Lu(刘亚壮)
 mykit-annotation-spring-provider是mykit架构下基于JDK和Spring的自定义注解插件
 
 # 实现概述
-本插件主要实现了两个案例：基于JDK和Spring自定义插件实现模拟用户登录校验；基于JDK和Spring自定义插件实现日志管理
+本插件主要实现了三个案例：基于JDK和Spring自定义插件实现模拟用户登录校验；Spring AOP的注解实例；基于JDK和Spring自定义插件实现日志管理
 
 # 具体描述
 一、基于JDK和Spring自定义插件实现模拟用户登录校验
@@ -22,7 +22,7 @@ mykit-annotation-spring-provider是mykit架构下基于JDK和Spring的自定义�
 		不需登录
 		[{'id': 1, 'username':'liuyazhuang', 'sex':'mail', 'age':'18', 'address':'chengdu'}]
 		
-	3)将io.mykit.annotation.spring.aop.LoginAdvices中的boolean标志位isLogin改为true
+	3)将io.mykit.annotation.spring.advices.LoginAdvices中的boolean标志位isLogin改为true
 		io.mykit.annotation.spring.service.impl.UserServiceImpl@75d4a5c2-------getUserInfo
 		已登录...
 		[{'id': 1, 'username':'liuyazhuang', 'sex':'mail', 'age':'18', 'address':'chengdu'}]
