@@ -27,7 +27,7 @@ public class LoginAdvices {
 		boolean annotationPresent = method.isAnnotationPresent(RequiresLogin.class);
 		if (annotationPresent) {
 			// 用户必须登录
-			boolean isLogin = true;
+			boolean isLogin = false;
 			if (!isLogin) {
 				System.out.println("访问该接口必须先登录");
 				throw new Exception("访问该接口必须先登录");
