@@ -28,6 +28,7 @@ QQ：2711098650
 *	mykit-mq：mykit架构中的消息引擎插件
 *	mykit-tag：mykit架构中的标签插件
 *	mykit-annotation：mykit架构中的注解插件
+*	mykit-proxy：mykit架构中的代理插件
 
 
 
@@ -71,5 +72,11 @@ QQ：2711098650
 
 ##	mykit-annotation-spring架构
 *	mykit-annotation-spring-provider:mykit-annotation-spring架构下基于JDK和Spring实现自定义插件的具体实现
+
+## mykit-proxy架构
+*	mykit-proxy-cglib：mykit-proxy架构下基于cglib实现的代理插件
+*	mykit-proxy-jdk：mykit-proxy架构下基于jdk实现的动态代理插件
+
+
 
 

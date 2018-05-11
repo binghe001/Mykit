@@ -34,6 +34,7 @@
     <module>mykit-tag</module>
     <module>mykit-mq</module>
     <module>mykit-annotation</module>
+    <module>mykit-proxy</module>
   </modules>
    
    <dependencies>
