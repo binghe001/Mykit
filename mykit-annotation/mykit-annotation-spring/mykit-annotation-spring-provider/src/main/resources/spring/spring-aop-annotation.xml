@@ -23,7 +23,7 @@
 						http://www.springframework.org/schema/task  http://www.springframework.org/schema/task/spring-task-4.0.xsd"
 						default-autowire="byName">
 	 <mvc:annotation-driven />
-     <!-- 激活组件扫描功能,在包com.gcx及其子包下面自动扫描通过注解配置的组件 -->
+     <!-- 激活组件扫描功能,在包io.mykit.annotation.spring.aop及其子包下面自动扫描通过注解配置的组件 -->
      <context:component-scan base-package="io.mykit.annotation.spring.aop" /> 
 	
 	 <!-- 启动对@AspectJ注解的支持 -->
