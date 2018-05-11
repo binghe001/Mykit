@@ -62,3 +62,14 @@ QQ：2711098650
 ### mykit-mq-spring架构
 *	mykit-mq-spring-amq：mykit-mq-spring架构下AMQ(ActiveMQ)和Spring整合的具体实现插件
 
+
+## mykit-annotation架构
+*	mykit-annotation-jdk：mykit-annotation架构下基于JDK的自定义注解插件
+
+### mykit-annotation-jdk架构
+*	mykit-annotation-jdk-provider:mykit-annotation-jdk架构下基于JDK实现自定义插件的具体实现
+
+##	mykit-annotation-spring架构
+*	mykit-annotation-spring-provider:mykit-annotation-spring架构下基于JDK和Spring实现自定义插件的具体实现
+
+
