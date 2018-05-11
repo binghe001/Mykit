@@ -1,0 +1,24 @@
+# 作者
+Adam Lu(刘亚壮)
+
+# 项目简介
+mykit-proxy-jdk是mykit架构下基于JDK实现动态代理的具体插件
+
+# 实现方式
+1、自定义了相关的Java接口和来整合动态代理
+	接口为：io.mykit.proxy.jdk.service.TestService
+	接口的实现类为：io.mykit.proxy.jdk.service.impl.TestServiceImpl
+	JDK动态代理实现类为：io.mykit.proxy.jdk.handler.JDKDynamicProxy
+	测试类为：io.mykit.proxy.jdk.ProxyTest
+	
+2、测试方式：
+	直接运行io.mykit.proxy.jdk.ProxyTest类即可
+	
+3、测试结果如下：
+	开始执行add...
+	===================================
+	开始执行目标对象之前...
+	开始执行add...
+	开始执行目标对象之后...
+
+
