@@ -27,7 +27,22 @@ mykit-annotation-spring-provider是mykit架构下基于JDK和Spring的自定义�
 		已登录...
 		[{'id': 1, 'username':'liuyazhuang', 'sex':'mail', 'age':'18', 'address':'chengdu'}]
 		
-
+二、Spring AOP的注解实例
+	1、io.mykit.annotation.spring.aop.*包下实现了Spring AOP的注解实例
+	2、Spring的配置文件为classpath/spring/spring-aop-annotation.xml
+	3、测试入口为：io.mykit.annotation.spring.aop.provider.AOPAnnotationTest
+	4、测试结果如下：
+		==========执行前置通知===============
+		[mykit-annotation-spring-provider]2018-05-11 15:16:16,068 INFO [main] Interceptor.doBefore(66) | before execution(void io.mykit.annotation.spring.aop.service.impl.UserServiceImpl.addUser())
+		执行addUser方法...
+		[mykit-annotation-spring-provider]2018-05-11 15:16:16,084 INFO [main] Interceptor.around(52) | around execution(void io.mykit.annotation.spring.aop.service.impl.UserServiceImpl.addUser())	Use time : 17 ms!
+		===========执行后置通知==============
+		[mykit-annotation-spring-provider]2018-05-11 15:16:16,084 INFO [main] Interceptor.doAfter(74) | after execution(void io.mykit.annotation.spring.aop.service.impl.UserServiceImpl.addUser())
+		===========执行后置返回通知==============
+		[mykit-annotation-spring-provider]2018-05-11 15:16:16,085 INFO [main] Interceptor.afterReturn(82) | afterReturn execution(void io.mykit.annotation.spring.aop.service.impl.UserServiceImpl.addUser())
+	
+	
+	
 		
 		
 

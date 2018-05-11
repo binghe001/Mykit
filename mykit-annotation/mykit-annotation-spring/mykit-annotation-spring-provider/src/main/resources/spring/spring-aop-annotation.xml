@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop" 
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:cache="http://www.springframework.org/schema/cache"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+ 						http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+ 						http://www.springframework.org/schema/context 
+ 						http://www.springframework.org/schema/context/spring-context-4.0.xsd
+ 						http://www.springframework.org/schema/tx 
+ 						http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+ 						http://www.springframework.org/schema/aop 
+ 						http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+ 						http://www.springframework.org/schema/mvc 
+						http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+						http://www.springframework.org/schema/cache 
+						http://www.springframework.org/schema/cache/spring-cache-4.0.xsd
+						http://www.springframework.org/schema/task  http://www.springframework.org/schema/task/spring-task-4.0.xsd"
+						default-autowire="byName">
+	 <mvc:annotation-driven />
+     <!-- 激活组件扫描功能,在包com.gcx及其子包下面自动扫描通过注解配置的组件 -->
+     <context:component-scan base-package="io.mykit.annotation.spring.aop" /> 
+	
+	 <!-- 启动对@AspectJ注解的支持 -->
+     <!-- proxy-target-class等于true是强制使用cglib代理，proxy-target-class默认是false，如果你的类实现了接口 就走JDK代理，如果没有走cglib代理  -->
+     <!-- 注：对于单利模式建议使用cglib代理，虽然JDK动态代理比cglib代理速度快，但性能不如cglib -->
+     <aop:aspectj-autoproxy proxy-target-class="true"/>
+     <context:annotation-config />
+     <bean id="interceptor" class="io.mykit.annotation.spring.aop.interceptor.Interceptor"/> 
+</beans>
