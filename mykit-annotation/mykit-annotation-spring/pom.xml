@@ -67,6 +67,12 @@
             <artifactId>spring-web</artifactId>
             <version>${spring.version}</version>
         </dependency>
+        
+        <dependency>
+		    <groupId>org.aspectj</groupId>
+		    <artifactId>aspectjtools</artifactId>
+		    <version>1.9.1</version>
+		</dependency>
 		
 		<dependency>
 		    <groupId>javax.servlet</groupId>
