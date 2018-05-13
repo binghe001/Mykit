@@ -19,5 +19,6 @@
   </properties>
   <modules>
     <module>mykit-tools-common</module>
+    <module>mykit-tools-algorithm</module>
   </modules>
 </project>

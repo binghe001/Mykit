@@ -47,9 +47,14 @@ QQ：2711098650
 
 ## mykit-tools架构
 *	mykit-tools-common：mykit-tools架构中的通用工具集插件
+*	mykit-tools-algorithm：mykit-tools架构中的算法插件
 
 ### mykit-tools-common架构
 *	mykit-tools-ip：mykit-tools-common架构中与IP相关的插件
+
+### mykit-tools-algorithm架构
+*	mykit-tools-algorithm-geohash：mykit-tools-algorithm算法架构中的genhash算法插件实现
+
 
 ## mykit-tag架构
 *	mykit-tag-spring：mykit-tag架构中与spring相关的插件
