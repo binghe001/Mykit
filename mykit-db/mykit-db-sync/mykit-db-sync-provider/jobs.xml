@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <code>4500000001</code>
+    <source>
+        <url>jdbc:oracle:thin:@192.168.1.179:1521:XE</url>
+        <username>test</username>
+        <password>test</password>
+        <dbtype>oracle</dbtype>
+        <driver>oracle.jdbc.driver.OracleDriver</driver>
+    </source>
+    <dest>
+        <url>jdbc:sqlserver://192.168.1.191:1433;DatabaseName=test</url>
+        <username>test</username>
+        <password>test</password>
+        <dbtype>sqlserver</dbtype>
+        <driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</driver>
+    </dest>
+    <jobs>
+        <job>
+            <name>1</name>
+            <cron>0/10 * * * * ?</cron>
+            <srcSql>select username,password from user</srcSql>
+            <destTable>user</destTable>
+            <destTableFields>username,password</destTableFields>
+            <destTableKey>username</destTableKey>
+            <destTableUpdate>password</destTableUpdate>
+        </job>
+    </jobs>
+</root>

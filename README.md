@@ -82,6 +82,10 @@ QQ：2711098650
 *	mykit-proxy-cglib：mykit-proxy架构下基于cglib实现的代理插件
 *	mykit-proxy-jdk：mykit-proxy架构下基于jdk实现的动态代理插件
 
+## mykit-db架构
+*	mykit-db-sync：mykit-db架构下的数据库同步插件
 
+###	mykit-db-sync架构
+*	mykit-db-sync-provider：mykit-db-sync架构下的数据库同步具体实现插件
 
 
