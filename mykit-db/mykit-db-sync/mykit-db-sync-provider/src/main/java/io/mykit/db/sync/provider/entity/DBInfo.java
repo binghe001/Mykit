@@ -5,7 +5,7 @@ package io.mykit.db.sync.provider.entity;
  * @author liuyazhuang
  *
  */
-public class DbInfo {
+public class DBInfo {
     String url;
     String username;
     String password;

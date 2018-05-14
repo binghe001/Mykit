@@ -11,7 +11,7 @@ import org.quartz.JobDataMap;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 
-import io.mykit.db.sync.provider.entity.DbInfo;
+import io.mykit.db.sync.provider.entity.DBInfo;
 import io.mykit.db.sync.provider.entity.JobInfo;
 import io.mykit.db.sync.provider.factory.DBSyncFactory;
 import io.mykit.db.sync.provider.sync.DBSync;
@@ -34,8 +34,8 @@ public class JobTask implements Job {
 		Connection inConn = null;
 		Connection outConn = null;
 		JobDataMap data = context.getJobDetail().getJobDataMap();
-		DbInfo srcDb = (DbInfo) data.get("srcDb");
-		DbInfo destDb = (DbInfo) data.get("destDb");
+		DBInfo srcDb = (DBInfo) data.get("srcDb");
+		DBInfo destDb = (DBInfo) data.get("destDb");
 		JobInfo jobInfo = (JobInfo) data.get("jobInfo");
 		String logTitle = (String) data.get("logTitle");
 		try {
@@ -75,7 +75,7 @@ public class JobTask implements Job {
 	 * @param db
 	 * @return
 	 */
-	private Connection createConnection(DbInfo db) {
+	private Connection createConnection(DBInfo db) {
 		try {
 			Class.forName(db.getDriver());
 			Connection conn = DriverManager.getConnection(db.getUrl(), db.getUsername(), db.getPassword());
