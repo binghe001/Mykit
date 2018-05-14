@@ -1,4 +1,4 @@
-package io.mykit.db.sync.provider;
+package io.mykit.db.sync;
 
 import static org.quartz.CronScheduleBuilder.cronSchedule;
 import static org.quartz.JobBuilder.newJob;
@@ -18,6 +18,7 @@ import org.quartz.Scheduler;
 import org.quartz.SchedulerFactory;
 import org.quartz.impl.StdSchedulerFactory;
 
+import io.mykit.db.sync.provider.JobTask;
 import io.mykit.db.sync.provider.entity.DbInfo;
 import io.mykit.db.sync.provider.entity.JobInfo;
 
@@ -27,13 +28,13 @@ import io.mykit.db.sync.provider.entity.JobInfo;
  * @author Administrator
  *
  */
-public class App {
+public class Main {
 
 	private DbInfo srcDb;
 	private DbInfo destDb;
 	private List<JobInfo> jobList;
 	private String code;
-	private static Logger logger = Logger.getLogger(App.class);
+	private static Logger logger = Logger.getLogger(Main.class);
 
 	public void init() {
 
@@ -77,7 +78,7 @@ public class App {
 			try {
 				SchedulerFactory sf = new StdSchedulerFactory();
 				Scheduler sched = sf.getScheduler();
-				JobDetail job = newJob(DataTask.class).withIdentity("job-" + jobInfo.getName(), code).build();
+				JobDetail job = newJob(JobTask.class).withIdentity("job-" + jobInfo.getName(), code).build();
 				job.getJobDataMap().put("srcDb", srcDb);
 				job.getJobDataMap().put("destDb", destDb);
 				job.getJobDataMap().put("jobInfo", jobInfo);
@@ -96,10 +97,9 @@ public class App {
 	}
 
 	public static void main(String[] args) {
-		App app = new App();
+		Main app = new Main();
 		app.init();
 		app.start();
 
 	}
-
 }

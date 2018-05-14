@@ -1,20 +1,28 @@
-package io.mykit.db.sync.provider.dbhelper.impl;
+package io.mykit.db.sync.provider.sync.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import io.mykit.db.sync.provider.Tool;
-import io.mykit.db.sync.provider.dbhelper.DbHelper;
 import io.mykit.db.sync.provider.entity.JobInfo;
+import io.mykit.db.sync.provider.sync.DBSync;
+import io.mykit.db.sync.provider.utils.Tool;
 
-public class MySql implements DbHelper {
+/**
+ * 实现MySQL同步数据库
+ * @author liuyazhuang
+ *
+ */
+public class MySQLSync extends AbstractDBSync implements DBSync {
 
+	@Override
     public String assembleSQL(String srcSql, Connection conn, JobInfo jobInfo) throws SQLException {
         String uniqueName = Tool.generateString(6) + "_" + jobInfo.getName();
         String[] fields = jobInfo.getDestTableFields().split(",");
+        fields = this.trimArrayItem(fields);
         String[] updateFields = jobInfo.getDestTableUpdate().split(",");
+        updateFields = this.trimArrayItem(updateFields);
         String destTable = jobInfo.getDestTable();
         String destTableKey = jobInfo.getDestTableKey();
         PreparedStatement pst = conn.prepareStatement(srcSql);
@@ -51,6 +59,7 @@ public class MySql implements DbHelper {
         return null;
     }
 
+	@Override
     public void executeSQL(String sql, Connection conn) throws SQLException {
         PreparedStatement pst = conn.prepareStatement("");
         String[] sqlList = sql.split(";");

@@ -11,14 +11,24 @@ import org.quartz.JobDataMap;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 
-import io.mykit.db.sync.provider.dbhelper.DbHelper;
-import io.mykit.db.sync.provider.dbhelper.Factory;
 import io.mykit.db.sync.provider.entity.DbInfo;
 import io.mykit.db.sync.provider.entity.JobInfo;
+import io.mykit.db.sync.provider.factory.Factory;
+import io.mykit.db.sync.provider.sync.DBSync;
 
-public class DataTask implements Job {
-	private Logger logger = Logger.getLogger(DataTask.class);
+/**
+ * 同步数据库任务的具体实现
+ * @author liuyazhuang
+ *
+ */
+public class JobTask implements Job {
+	private Logger logger = Logger.getLogger(JobTask.class);
 
+	/**
+	 * 执行同步数据库任务
+	 *
+	 */
+	@Override
 	public void execute(JobExecutionContext context) throws JobExecutionException {
 		this.logger.info("开始任务调度: " + new Date());
 		Connection inConn = null;
@@ -39,7 +49,7 @@ public class DataTask implements Job {
 				return;
 			}
 
-			DbHelper dbHelper = Factory.create(destDb.getDbtype());
+			DBSync dbHelper = Factory.create(destDb.getDbtype());
 			long start = new Date().getTime();
 			String sql = dbHelper.assembleSQL(jobInfo.getSrcSql(), inConn, jobInfo);
 			this.logger.info("组装SQL耗时: " + (new Date().getTime() - start) + "ms");
@@ -60,6 +70,11 @@ public class DataTask implements Job {
 		}
 	}
 
+	/**
+	 * 创建数据库连接
+	 * @param db
+	 * @return
+	 */
 	private Connection createConnection(DbInfo db) {
 		try {
 			Class.forName(db.getDriver());
@@ -72,10 +87,15 @@ public class DataTask implements Job {
 		return null;
 	}
 
+	/**
+	 * 关闭并销毁数据库连接
+	 * @param conn
+	 */
 	private void destoryConnection(Connection conn) {
 		try {
 			if (conn != null) {
 				conn.close();
+				conn = null;
 				this.logger.error("数据库连接关闭");
 			}
 		} catch (SQLException e) {

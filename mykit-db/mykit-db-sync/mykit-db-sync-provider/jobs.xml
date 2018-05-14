@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
     <code>4500000001</code>
-    <source>
+<!--     <source>
         <url>jdbc:oracle:thin:@192.168.1.179:1521:XE</url>
         <username>test</username>
         <password>test</password>
@@ -14,16 +14,30 @@
         <password>test</password>
         <dbtype>sqlserver</dbtype>
         <driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</driver>
+    </dest> -->
+    <source>
+        <url>jdbc:mysql://10.2.2.2:3306/guanxing_medical</url>
+        <username>root</username>
+        <password>root</password>
+        <dbtype>mysql</dbtype>
+        <driver>com.mysql.jdbc.Driver</driver>
+    </source>
+    <dest>
+        <url>jdbc:mysql://127.0.0.1:3306/guanxing_medical</url>
+        <username>root</username>
+        <password>root</password>
+        <dbtype>mysql</dbtype>
+        <driver>com.mysql.jdbc.Driver</driver>
     </dest>
     <jobs>
         <job>
             <name>1</name>
             <cron>0/10 * * * * ?</cron>
-            <srcSql>select username,password from user</srcSql>
-            <destTable>user</destTable>
-            <destTableFields>username,password</destTableFields>
-            <destTableKey>username</destTableKey>
-            <destTableUpdate>password</destTableUpdate>
+            <srcSql>select user_id, account,password from client_user</srcSql>
+            <destTable>client_user</destTable>
+            <destTableFields>user_id, account, password</destTableFields>
+            <destTableKey>user_id</destTableKey>
+            <destTableUpdate>account, password</destTableUpdate>
         </job>
     </jobs>
 </root>

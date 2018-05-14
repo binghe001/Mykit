@@ -1,5 +1,10 @@
 package io.mykit.db.sync.provider.entity;
 
+/**
+ * 数据库信息
+ * @author liuyazhuang
+ *
+ */
 public class DbInfo {
     String url;
     String username;

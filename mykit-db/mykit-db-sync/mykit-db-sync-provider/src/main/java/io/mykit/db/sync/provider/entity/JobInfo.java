@@ -1,13 +1,18 @@
 package io.mykit.db.sync.provider.entity;
 
+/**
+ * 任务信息
+ * @author liuyazhuang
+ *
+ */
 public class JobInfo {
-    String name;
-    String cron;
-    String srcSql;
-    String destTable;
-    String destTableFields;
-    String destTableKey;
-    String destTableUpdate;
+    private String name;
+    private String cron;
+    private String srcSql;
+    private String destTable;
+    private String destTableFields;
+    private String destTableKey;
+    private String destTableUpdate;
     
     public String getName() {
         return name;
