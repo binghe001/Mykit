@@ -13,7 +13,7 @@ import org.quartz.JobExecutionException;
 
 import io.mykit.db.sync.provider.entity.DbInfo;
 import io.mykit.db.sync.provider.entity.JobInfo;
-import io.mykit.db.sync.provider.factory.Factory;
+import io.mykit.db.sync.provider.factory.DBSyncFactory;
 import io.mykit.db.sync.provider.sync.DBSync;
 
 /**
@@ -49,7 +49,7 @@ public class JobTask implements Job {
 				return;
 			}
 
-			DBSync dbHelper = Factory.create(destDb.getDbtype());
+			DBSync dbHelper = DBSyncFactory.create(destDb.getDbtype());
 			long start = new Date().getTime();
 			String sql = dbHelper.assembleSQL(jobInfo.getSrcSql(), inConn, jobInfo);
 			this.logger.info("组装SQL耗时: " + (new Date().getTime() - start) + "ms");

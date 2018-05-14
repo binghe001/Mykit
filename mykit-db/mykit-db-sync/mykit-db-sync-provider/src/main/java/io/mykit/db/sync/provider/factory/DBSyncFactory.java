@@ -11,7 +11,7 @@ import io.mykit.db.sync.provider.utils.StringUtils;
  * @author liuyazhuang
  *
  */
-public class Factory {
+public class DBSyncFactory {
 	
 	/**
 	 * 根据数据库的类型创建不同的同步数据库数据的对象
