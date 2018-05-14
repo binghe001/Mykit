@@ -55,7 +55,7 @@
 						<manifest>
 							<addClasspath>true</addClasspath>
 							<classpathPrefix>lib/</classpathPrefix>
-							<mainClass>cn.net.communion.dbdatasync.App</mainClass>
+							<mainClass>io.mykit.db.sync.Main</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
