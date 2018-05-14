@@ -38,10 +38,18 @@ public class DBSyncBuilder {
 	private DBSyncBuilder(){
 	}
 	
+	/**
+	 * 创建DBSyncBuilder对象
+	 * @return DBSyncBuilder对象
+	 */
 	public static DBSyncBuilder builder(){
 		return new DBSyncBuilder();
 	}
 
+	/**
+	 * 初始化数据库信息并解析jobs.xml填充数据
+	 * @return DBSyncBuilder对象
+	 */
 	public DBSyncBuilder init() {
 		srcDb = new DBInfo();
 		destDb = new DBInfo();
@@ -68,6 +76,14 @@ public class DBSyncBuilder {
 		return this;
 	}
 
+	/**
+	 * 解析e中的元素，将数据填充到o中
+	 * @param e 解析的XML Element对象
+	 * @param o 存放解析后的XML Element对象
+	 * @return 存放有解析后数据的Object
+	 * @throws IllegalArgumentException
+	 * @throws IllegalAccessException
+	 */
 	public Object elementInObject(Element e, Object o) throws IllegalArgumentException, IllegalAccessException {
 		Field[] fields = o.getClass().getDeclaredFields();
 		for (int index = 0; index < fields.length; index++) {
@@ -77,6 +93,9 @@ public class DBSyncBuilder {
 		return o;
 	}
 
+	/**
+	 * 启动定时任务，同步数据库的数据
+	 */
 	public void start() {
 		for (int index = 0; index < jobList.size(); index++) {
 			JobInfo jobInfo = jobList.get(index);
