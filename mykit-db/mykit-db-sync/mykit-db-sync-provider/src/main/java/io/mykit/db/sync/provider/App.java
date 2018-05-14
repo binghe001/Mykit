@@ -48,7 +48,8 @@ public class App {
 			Element dest = root.element("dest");
 			Element jobs = root.element("jobs");
 			// 遍历job即同步的表
-			for (Iterator it = jobs.elementIterator("job"); it.hasNext();) {
+			for (@SuppressWarnings("rawtypes")
+			Iterator it = jobs.elementIterator("job"); it.hasNext();) {
 				jobList.add((JobInfo) elementInObject((Element) it.next(), new JobInfo()));
 			}
 			//
