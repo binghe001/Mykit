@@ -35,7 +35,8 @@
     <module>mykit-mq</module>
     <module>mykit-annotation</module>
     <module>mykit-proxy</module>
-  </modules>
+    <module>mykit-springboot</module>
+   </modules>
    
    <dependencies>
    		<dependency>  
