@@ -6,11 +6,16 @@ package io.mykit.db.sync.provider.entity;
  *
  */
 public class DBInfo {
-    String url;
-    String username;
-    String password;
-    String dbtype;
-    String driver;
+	//数据库连接
+    private String url;
+    //数据库用户名
+    private String username;
+    //数据库密码
+    private String password;
+    //数据库类型(对应mysql还是sqlserver)
+    private String dbtype;
+    //数据库驱动
+    private String driver;
     
     public String getUrl() {
         return url;

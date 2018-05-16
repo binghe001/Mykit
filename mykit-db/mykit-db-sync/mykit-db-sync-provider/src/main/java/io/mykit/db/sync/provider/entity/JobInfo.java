@@ -6,12 +6,19 @@ package io.mykit.db.sync.provider.entity;
  *
  */
 public class JobInfo {
+	//任务名称
     private String name;
+    //任务表达式
     private String cron;
+    //源数据源sql
     private String srcSql;
+    //目标数据表
     private String destTable;
+    //目标表数据字段
     private String destTableFields;
+    //目标表主键
     private String destTableKey;
+    //目标表可更新的字段
     private String destTableUpdate;
     
     public String getName() {
