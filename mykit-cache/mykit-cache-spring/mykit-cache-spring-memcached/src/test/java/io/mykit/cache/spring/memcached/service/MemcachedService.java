@@ -7,5 +7,6 @@ package io.mykit.cache.spring.memcached.service;
  */
 public interface MemcachedService {
 	
-	String getValue(String key);
+	String getValueFromDefaultCache(String key);
+	String getValueFromInTimeCache(String key);
 }

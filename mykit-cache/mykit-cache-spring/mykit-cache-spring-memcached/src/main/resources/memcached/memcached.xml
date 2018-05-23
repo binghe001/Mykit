@@ -63,8 +63,11 @@
 		<!-- 配置缓存时间 --> 
 		<property name="configMap">
 			 <map>
-			 	 <!-- key缓存对象名称   value缓存过期时间 --> 
-			 	 <entry key="systemCache" value="3600"/>
+			 	 <!-- key缓存对象名称   value缓存过期时间,单位为秒 --> 
+			 	 <!-- 默认缓存区，不过期 -->
+			 	 <entry key="defaultCache" value="0"/>
+			 	 <!-- 实时缓存区，默认时间为半小时 -->
+			 	 <entry key="inTimeCache" value="1800"/>
 			 </map>
 		</property>
 	</bean>

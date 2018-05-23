@@ -10,8 +10,14 @@ import io.mykit.cache.spring.memcached.utils.LoadFile;
 public class MemcachedServiceImpl implements MemcachedService {
 
 	@Override
-	@Cacheable("getValue")  
-	public String getValue(String key) {
+	@Cacheable(value = "defaultCache")  
+	public String getValueFromDefaultCache(String key) {
+		return LoadFile.getValue(key);
+	}
+
+	@Override
+	@Cacheable(value = "inTimeCache")  
+	public String getValueFromInTimeCache(String key) {
 		return LoadFile.getValue(key);
 	}
 

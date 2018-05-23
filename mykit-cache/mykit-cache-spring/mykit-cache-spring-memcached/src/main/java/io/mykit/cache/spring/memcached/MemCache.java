@@ -1,5 +1,6 @@
 package io.mykit.cache.spring.memcached;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,15 +17,19 @@ import com.danga.MemCached.MemCachedClient;
 public class MemCache {
 	private static Logger log = LoggerFactory.getLogger(MemCache.class);
 
+	//当前所用的MemcachedClient为com.danga.MemCached.MemCachedClient
+    private static final String MEMCACHED_CLIENT_ALL_NAME_DANGA = "com.danga.MemCached.MemCachedClient";
 	private Set<String> keySet = new HashSet<String>();
 	private final String name;
 	private final int expire;
 	private final MemCachedClient memcachedClient;
-
+	private String memcachedClientAllName;
+	
 	public MemCache(String name, int expire, MemCachedClient memcachedClient) {
 		this.name = name;
 		this.expire = expire;
 		this.memcachedClient = memcachedClient;
+		this.memcachedClientAllName = memcachedClient.getClass().getName();
 	}
 
 	public Object get(String key) {
@@ -43,7 +48,11 @@ public class MemCache {
 			return;
 		try {
 			key = this.getKey(key);
-			memcachedClient.set(key, value, expire);
+			if(MEMCACHED_CLIENT_ALL_NAME_DANGA.equals(this.memcachedClientAllName)){
+				memcachedClient.set(key, value, new Date(System.currentTimeMillis() + expire * 1000));
+			}else{
+				memcachedClient.set(key, value, expire);
+			}
 			keySet.add(key);
 		}catch (Exception e) {
 			log.warn("更新 Memcached 缓存错误", e);

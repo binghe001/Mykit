@@ -52,6 +52,24 @@ public class MemcachedTest {
 	public void testAnnotation(){
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring/spring-context.xml");
 		MemcachedService memcachedService = (MemcachedService) context.getBean("memcachedService");
-		System.out.println(memcachedService.getValue("test_memcached"));
+		System.out.println(memcachedService.getValueFromDefaultCache("default_test_memcached"));
+		System.out.println(memcachedService.getValueFromInTimeCache("intime_test_memcached"));
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println(memcachedService.getValueFromDefaultCache("default_test_memcached"));
+		System.out.println(memcachedService.getValueFromInTimeCache("intime_test_memcached"));
+		
+		try {
+			Thread.sleep(4000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println(memcachedService.getValueFromDefaultCache("default_test_memcached"));
+		System.out.println(memcachedService.getValueFromInTimeCache("intime_test_memcached"));
 	}
 }
