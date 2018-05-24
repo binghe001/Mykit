@@ -17,9 +17,16 @@
 	
      <mvc:interceptors>
      	<mvc:interceptor>
-	         <mvc:mapping path="/**"/>
-	         <bean class="io.mykit.filter.spring.repeat.interceptor.impl.MySameUrlDataInterceptor"/>
-     </mvc:interceptor>
+		         <mvc:mapping path="/**"/>
+		         <bean class="io.mykit.filter.spring.repeat.interceptor.impl.MySameUrlDataInterceptor"/>
+	     </mvc:interceptor>
+	     
+	    <!--  <mvc:interceptor>
+		         <mvc:mapping path="/**"/>
+		         <bean class="io.mykit.filter.spring.repeat.interceptor.impl.MyFormTokenInterceptor"/>
+	     </mvc:interceptor> -->
+	     
      </mvc:interceptors>
+     
   
 </beans> 
