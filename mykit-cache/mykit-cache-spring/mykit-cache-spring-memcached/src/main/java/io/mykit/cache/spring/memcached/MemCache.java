@@ -31,7 +31,7 @@ public class MemCache {
 		this.memcachedClient = memcachedClient;
 		this.memcachedClientAllName = memcachedClient.getClass().getName();
 	}
-
+	
 	public Object get(String key) {
 		Object value = null;
 		try {

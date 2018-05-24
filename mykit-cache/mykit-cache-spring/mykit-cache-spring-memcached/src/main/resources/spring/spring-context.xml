@@ -24,6 +24,16 @@
 						default-autowire="byName">
 	<context:property-placeholder location="classpath*:properties/memcached.properties"/>
 	<context:annotation-config />
-	<context:component-scan base-package="io.mykit.cache.spring.memcached" />
+	<context:component-scan base-package="io.mykit.cache.spring" />
+	 <aop:config proxy-target-class="true"/>
+	<!-- <bean id="annotationParser" class="io.mykit.cache.spring.annotation.parser.AnnotationParser"/>
+	
+    <aop:config proxy-target-class="true">
+        <aop:aspect ref="annotationParser">
+            <aop:pointcut id="pointcut1" expression="execution(* io.mykit.cache.spring.memcached.service.*.*(..))"/>
+            <aop:before method="before" pointcut-ref="pointcut1"/>
+        </aop:aspect>
+    </aop:config>   -->
+	
  	<import resource="classpath:memcached/memcached.xml"/>
 </beans>

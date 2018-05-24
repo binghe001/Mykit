@@ -29,6 +29,7 @@ public class MemcachedCacheManager extends AbstractTransactionSupportingCacheMan
 		Collection<Cache> values = cacheMap.values();
 		return values;
 	}
+	
 
 	@Override
 	public Cache getCache(String name) {
@@ -52,5 +53,6 @@ public class MemcachedCacheManager extends AbstractTransactionSupportingCacheMan
 	public void setConfigMap(Map<String, Integer> configMap) {
 		this.expireMap = configMap;
 	}
+	
 
 }

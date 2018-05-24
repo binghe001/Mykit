@@ -67,7 +67,7 @@
 			 	 <!-- 默认缓存区，不过期 -->
 			 	 <entry key="defaultCache" value="0"/>
 			 	 <!-- 实时缓存区，默认时间为半小时 -->
-			 	 <entry key="inTimeCache" value="1800"/>
+			 	 <entry key="inTimeCache" value="5"/>
 			 </map>
 		</property>
 	</bean>
