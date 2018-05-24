@@ -3,6 +3,9 @@ Adam Lu(刘亚壮)
 
 ## 项目简介
 mykit-cache-spring-memcached插件为Spring整合Memcached的实现，同时本插件对Memcached的客户端进行了进一步的封装，实现了同步操作
+同时，本工程实现了Spring整合Memcached、Spring整合simple-spring-memcached两种整合方式
+其中，Spring整合simple-spring-memcached支持基于注解的超时设置，memcached-simple.xml文件为Spring整合simple-spring-memcached的配置文件；
+io.mykit.cache.spring.memcached.simple.*测试包中的类为Spring整合simple-spring-memcached的测试类，具体可参见代码
 
 ## 具体使用规则如下：
 1、将本工程直接打成Jar包，导入到需要使用的工程的classpath下，或者以Maven的形式导入；
@@ -22,7 +25,62 @@ mykit-cache-spring-memcached插件为Spring整合Memcached的实现，同时本�
 	
 	
 ## 扩展
-Spring 缓存注解简述如下：
+一、simple-spring-memcached注解说明如下：
+@CacheName: 指定缓存实例注解
+@CacheKeyMethod:缓存key生成注解
+---------------------------------读取-------------------------------------------
+@ReadThroughAssignCache(assignedKey = "SomePhatKey", namespace = "Echo", expiration = 3000): 读取指定key缓存
+@ReadThroughSingleCache(namespace = SINGLE_NS, expiration = 0):读取单个缓存
+@ReadThroughMultiCache(option = @ReadThroughMultiCacheOption(generateKeysFromResult = true)):读取多个缓存
+@ReadThroughMultiCacheOption(generateKeysFromResult = true) 读取多个缓存操作generateKeysFromResult 通过结果生成key
+
+
+---------------------------------更新-------------------------------------------
+@UpdateAssignCache(assignedKey = "SomePhatKey", namespace = "Echo", expiration = 3000): 指定key更新缓存
+@UpdateSingleCache(namespace = SINGLE_NS, expiration = 2): 更新单个缓存(namespace 命名空间, expiration 失效时间单位秒)
+@UpdateMultiCache(namespace = "Bravo", expiration = 300): 更新多个缓存
+---------------------------------失效-------------------------------------------
+@InvalidateAssignCache(assignedKey = "SomePhatKey", namespace = "Echo") : 指定key失效缓存
+@InvalidateSingleCache(namespace = SINGLE_NS):失效单个缓存
+@InvalidateMultiCache(namespace = "Delta") : 失效多个缓存
+
+---------------------------------参数-------------------------------------------
+@ParameterDataUpdateContent: 标记方法的参数作为更新内容。这个注解应结合Update*Cache注解使用
+@ParameterValueKeyProvider: 标记将方法的参数做为计算缓存key.如果方法被注解的对象标记CacheKeyMethod的方法将会用来生成缓存key否则调用toString()生成
+@ParameterValueKeyProvider(order=0) 属性表示如果多个参数做为key时需提供参数顺序
+与@ParameterValueKeyProvider类似的注解有:
+{
+
+  @ReturnValueKeyProvider: 返回值对象中计算key
+
+}
+---------------------------------泛型处理-------------------------------------------
+
+@BridgeMethodMappings({ @BridgeMethodMapping(methodName = "updateUser", 
+erasedParamTypes = { Object.class }, targetParamTypes = { AppUser.class }) }): 泛型桥接注解
+methodName : 指定方法
+erasedParamTypes : 擦除对象类型
+targetParamTypes : 目标转换类型
+
+---------------------------------计数器-------------------------------------------
+@InvalidateAssignCache  :在给的计算器上加1. 如果不存在则初始化为1
+@DecrementCounterInCache : 在给的计数器上减1
+@ReadCounterFromCache  :读取计数器
+@UpdateCounterFromCache : 更新计数器
+ 
+b. 以bean的方式使用Cache对象
+
+某些场景我们希望更便捷地自己手动来管理缓存数据，此时需要使用Simple-Spring-Memcached配置中定义的bean。以上面的配置文件为例，使用方法如下
+bean的注入：
+
+@Autowired
+private Cache appCache;
+bean的使用:
+appCache.set(Constants.CACHE_KEY + members.getMemberId(), 3600,cacheValue);
+
+
+
+二、Spring 缓存注解简述如下：
   Spring为我们提供了几个注解来支持Spring Cache。其核心主要是@Cacheable和@CacheEvict。使用@Cacheable标记的方法在执行后Spring Cache将缓存其返回结果，而使用@CacheEvict标记的方法会在方法执行前或者执行后移除Spring Cache中的某些元素。下面我们将来详细介绍一下Spring基于注解对Cache的支持所提供的几个注解。
 1.1    @Cacheable
 

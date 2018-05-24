@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:cache="http://www.springframework.org/schema/cache"
+       xmlns:aop="http://www.springframework.org/schema/aop" 
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+ 						http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+ 						http://www.springframework.org/schema/context 
+ 						http://www.springframework.org/schema/context/spring-context-4.0.xsd
+						http://www.springframework.org/schema/cache 
+						http://www.springframework.org/schema/cache/spring-cache-4.0.xsd
+						http://www.springframework.org/schema/aop 
+ 						http://www.springframework.org/schema/aop/spring-aop-4.0.xsd"
+						default-autowire="byName">
+ 	
+ 	<!-- ===================================  配置Memcached =============================== -->
+ 	 <!-- 开启缓存 -->  
+    <import resource="classpath:simplesm-context.xml" />
+    <aop:aspectj-autoproxy />
+    <context:annotation-config />
+    <bean name="defaultMemcachedClient" class="com.google.code.ssm.CacheFactory">
+        <property name="cacheClientFactory">
+            <bean class="com.google.code.ssm.providers.xmemcached.MemcacheClientFactoryImpl" />
+        </property>
+        <property name="addressProvider">
+            <bean class="com.google.code.ssm.config.DefaultAddressProvider">
+                  <property name="address" value="${simple.memcache.server}" />
+            </bean>
+        </property>
+        <property name="configuration">
+            <bean class="com.google.code.ssm.providers.xmemcached.XMemcachedConfiguration">
+                <property name="consistentHashing"><!--consistentHashing属性定义了缓存节点的查找方法: 是否使用哈希 -->
+                    <value>${simple.memcache.consistenthashing}</value>
+                </property>
+                <property name="connectionPoolSize">
+                    <value>${simple.memcache.connectionpoolsize}</value>
+                </property>
+                <property name="optimizeGet">
+                    <value>${simple.memcache.optimizeget}</value>
+                </property>
+                <property name="optimizeMergeBuffer">
+                    <value>${simple.memcache.optimizemergebuffer}</value>
+                </property>
+                <property name="mergeFactor">
+                    <value>${simple.memcache.mergefactor}</value>
+                </property>
+                <property name="useBinaryProtocol">
+                    <value>${simple.memcache.usebinaryprotocol}</value>
+                </property>
+                <property name="connectionTimeout">
+                    <value>${simple.memcache.connectiontimeout}</value>
+                </property>
+                <property name="operationTimeout">
+                    <value>${simple.memcache.operationtimeout}</value>
+                </property>
+                <property name="enableHeartBeat">
+                    <value>${simple.memcache.enableheartbeat}</value>
+                </property>
+                <property name="failureMode">
+                    <value>${simple.memcache.failureMode}</value>
+                </property>
+            </bean>
+        </property>
+            <!-- 该Memcached配置的Cache名称 一个应用中存在多个Memcached时，各个配置的cacheName必须不同。如果该值未设，系统默认为default -->
+        <property name="cacheName" value="default" />
+    </bean>
+
+    <bean class="com.google.code.ssm.Settings"><!-- 这玩意儿在3.2 后，文档可以指定顺序 以及 拦截器 前后执行 - -！暂时没用过，加上不报错 -->
+        <property name="order" value="500" />
+    </bean>    
+</beans>

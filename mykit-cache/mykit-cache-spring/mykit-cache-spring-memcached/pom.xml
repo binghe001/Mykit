@@ -24,6 +24,17 @@
 	   <version>2.6.6</version>  
 	</dependency>
 	
+     <dependency>
+         <groupId>com.google.code.simple-spring-memcached</groupId>
+         <artifactId>spring-cache</artifactId>
+         <version>4.0.0</version>
+     </dependency>
+     <dependency>
+         <groupId>com.google.code.simple-spring-memcached</groupId>
+         <artifactId>xmemcached-provider</artifactId>
+         <version>4.0.0</version>
+     </dependency>
+	
 	<dependency>
 	    <groupId>com.google.code.simple-spring-memcached</groupId>
 	    <artifactId>simple-spring-memcached</artifactId>

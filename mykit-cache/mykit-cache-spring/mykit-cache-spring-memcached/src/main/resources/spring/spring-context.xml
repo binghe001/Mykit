@@ -35,5 +35,6 @@
         </aop:aspect>
     </aop:config>   -->
 	
- 	<import resource="classpath:memcached/memcached.xml"/>
+ 	<!-- <import resource="classpath:memcached/memcached.xml"/> -->
+ 	<import resource="classpath:memcached/memcached-simple.xml"/>
 </beans>
