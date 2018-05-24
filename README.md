@@ -88,4 +88,14 @@ QQ：2711098650
 ###	mykit-db-sync架构
 *	mykit-db-sync-provider：mykit-db-sync架构下的数据库同步具体实现插件
 
+## mykit-filter架构
+*	mykit-filter-spring：mykit-filter架构下与Spring相关的插件
+*	mykit-filter-web： mykit-filter架构下与web相关的插件
+
+### mykit-filter-spring架构
+*	mykit-filter-spring-provider：mykit-filter架构下与Spring相关插件的具体实现
+
+### mykit-filter-web架构
+*	mykit-filter-web-provider：mykit-filter架构下与web相关插件的具体实现
+
 
