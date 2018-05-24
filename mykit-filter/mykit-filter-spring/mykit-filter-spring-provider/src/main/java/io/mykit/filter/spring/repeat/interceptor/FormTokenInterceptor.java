@@ -42,5 +42,10 @@ public abstract class FormTokenInterceptor extends HandlerInterceptorAdapter {
         }
     }
 
+    /**
+     * 具体规则交由子类实现
+     * @param request
+     * @return
+     */
     public abstract boolean isRepeatSubmit(HttpServletRequest request);
 }
