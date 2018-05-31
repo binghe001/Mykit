@@ -29,6 +29,7 @@ QQ：2711098650
 *	mykit-tag：mykit架构中的标签插件
 *	mykit-annotation：mykit架构中的注解插件
 *	mykit-proxy：mykit架构中的代理插件
+*	mykit-lock：mykit架构中的锁插件
 
 
 
@@ -98,4 +99,5 @@ QQ：2711098650
 ### mykit-filter-web架构
 *	mykit-filter-web-provider：mykit-filter架构下与web相关插件的具体实现
 
-
+## mykit-lock架构
+*	mykit-lock-redis：mykit-lock分布式锁架构下基于注解和Redis的具体实现

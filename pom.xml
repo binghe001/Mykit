@@ -36,7 +36,8 @@
     <module>mykit-annotation</module>
     <module>mykit-proxy</module>
     <module>mykit-springboot</module>
-   </modules>
+    <module>mykit-lock</module>
+  </modules>
    
    <dependencies>
    		<dependency>  
