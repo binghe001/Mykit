@@ -5,7 +5,6 @@ import java.util.Date;
 
 import org.junit.Test;
 
-import io.mykit.lock.integrate.lock.redis.RedisDistributedLockTemplate;
 import redis.clients.jedis.JedisPool;
 
 /**
@@ -32,7 +31,7 @@ public class AccessSpeedLimitTest {
     @Test
     public void test2() throws InterruptedException {
         JedisPool jp=new JedisPool("127.0.0.1",6379);
-        final RedisDistributedLockTemplate template=new RedisDistributedLockTemplate(jp);
+//        final RedisDistributedLockTemplate template=new RedisDistributedLockTemplate(jp);
         LimitRule limitRule=new LimitRule();
         limitRule.setSeconds(1);
         limitRule.setLimitCount(5);

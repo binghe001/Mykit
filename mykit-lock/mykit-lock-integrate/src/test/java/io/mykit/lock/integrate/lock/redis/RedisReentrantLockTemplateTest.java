@@ -34,7 +34,7 @@ public class RedisReentrantLockTemplateTest {
                     template.execute("test",5000, new Callback() {
                         public Object onGetLock() throws InterruptedException {
                             System.out.println(Thread.currentThread().getName() + ":getLock");
-                            Thread.currentThread().sleep(sleepTime);
+                            Thread.sleep(sleepTime);
                             System.out.println(Thread.currentThread().getName() + ":sleeped:"+sleepTime);
                             endDownLatch.countDown();
                             return null;
