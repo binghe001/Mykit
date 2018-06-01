@@ -9,6 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import io.mykit.lock.redis.client.RedisClient;
+import io.mykit.lock.redis.entity.Goods;
 import io.mykit.lock.redis.interceptor.CacheLockInterceptor;
 import io.mykit.lock.redis.service.SeckillInterface;
 import io.mykit.lock.redis.service.impl.SecKillImpl;
@@ -105,5 +106,45 @@ public class SecKillTest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	@Test
+	public void testSecKillGoods(){
+		long startTime = System.currentTimeMillis();
+		SecKillImpl testClass = new SecKillImpl();
+		try {
+			for(int i = 0; i < 1000; i ++){
+				new Thread(new Runnable() {
+					
+					@Override
+					public void run() {
+						SeckillInterface proxy = (SeckillInterface) Proxy.newProxyInstance(SeckillInterface.class.getClassLoader(), 
+								new Class[]{SeckillInterface.class}, new CacheLockInterceptor(testClass));
+						proxy.secKill(new Goods(1L, 0));
+						
+					}
+				}).start();
+			}
+			for(int i = 0; i < 1000; i ++){
+				new Thread(new Runnable() {
+					
+					@Override
+					public void run() {
+						SeckillInterface proxy = (SeckillInterface) Proxy.newProxyInstance(SeckillInterface.class.getClassLoader(), 
+								new Class[]{SeckillInterface.class}, new CacheLockInterceptor(testClass));
+						proxy.secKill(new Goods(2L, 0));
+						
+					}
+				}).start();
+			}
+			
+			System.out.println(SecKillImpl.goodsMap.get(1L).getCount());
+			System.out.println(SecKillImpl.goodsMap.get(2L).getCount());
+			System.out.println("error count" + CacheLockInterceptor.ERROR_COUNT);
+			System.out.println("total cost " + (System.currentTimeMillis() - startTime));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 	}
 }
