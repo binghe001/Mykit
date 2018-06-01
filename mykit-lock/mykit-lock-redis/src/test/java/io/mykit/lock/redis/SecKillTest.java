@@ -1,19 +1,15 @@
 package io.mykit.lock.redis;
 
 
-import java.io.IOException;
 import java.lang.reflect.Proxy;
 import java.util.concurrent.CountDownLatch;
 
-import org.junit.Before;
 import org.junit.Test;
 
-import io.mykit.lock.redis.client.RedisClient;
 import io.mykit.lock.redis.entity.Goods;
 import io.mykit.lock.redis.interceptor.CacheLockInterceptor;
 import io.mykit.lock.redis.service.SeckillInterface;
 import io.mykit.lock.redis.service.impl.SecKillImpl;
-import redis.clients.jedis.JedisPool;
 
 /**
  * 测试描述秒杀系统
@@ -23,18 +19,7 @@ import redis.clients.jedis.JedisPool;
 public class SecKillTest {
 	private static Long commidityId1 = 10000001L;
 	private static Long commidityId2 = 10000002L;
-	private 
-	RedisClient client;
 	public static String HOST = "127.0.0.1";
-	private JedisPool jedisPool;
-	@Before
-	public synchronized void  beforeTest() throws IOException{
-		
-		
-		jedisPool = new JedisPool("127.0.0.1");
-		
-	}
-	
 	@Test
 	public void testSecKill(){
 		int threadCount = 1000;
