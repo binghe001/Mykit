@@ -13,5 +13,6 @@
   </properties>
   <modules>
     <module>mykit-lock-redis</module>
+    <module>mykit-lock-integrate</module>
   </modules>
 </project>
