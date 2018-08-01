@@ -37,6 +37,7 @@
     <module>mykit-proxy</module>
     <module>mykit-springboot</module>
     <module>mykit-lock</module>
+    <module>mykit-ai</module>
   </modules>
    
    <dependencies>
