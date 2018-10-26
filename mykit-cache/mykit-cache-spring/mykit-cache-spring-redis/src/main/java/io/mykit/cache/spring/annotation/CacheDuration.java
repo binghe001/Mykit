@@ -16,6 +16,7 @@ import java.lang.annotation.Target;
 @Target({ElementType.METHOD, ElementType.TYPE})
 @Documented
 public @interface CacheDuration {
-
+	
+	//Sets the expire time (in seconds).
     long duration() default 60;
 }

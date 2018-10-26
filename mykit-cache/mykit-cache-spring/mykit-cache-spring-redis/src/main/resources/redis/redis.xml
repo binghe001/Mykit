@@ -44,7 +44,7 @@
 	    </property>
 	</bean>
 	<!-- 配置缓存 -->
-	<bean id="cacheManager" class="org.springframework.data.redis.cache.RedisCacheManager">
+	<bean id="cacheManager" class="io.mykit.cache.spring.annotation.parser.SpringRedisCacheManager">
 	    <constructor-arg ref="redisTemplate" />
 	</bean>
 	

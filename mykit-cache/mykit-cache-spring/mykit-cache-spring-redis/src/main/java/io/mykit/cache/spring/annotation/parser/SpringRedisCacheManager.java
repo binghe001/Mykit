@@ -11,6 +11,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.cache.annotation.CacheConfig;
@@ -30,6 +32,8 @@ import io.mykit.cache.spring.annotation.CacheDuration;
  *
  */
 public class SpringRedisCacheManager extends RedisCacheManager implements ApplicationContextAware, InitializingBean {
+	
+	private final Logger logger = LoggerFactory.getLogger(SpringRedisCacheManager.class);
 
     private ApplicationContext applicationContext;
 
@@ -58,6 +62,7 @@ public class SpringRedisCacheManager extends RedisCacheManager implements Applic
             }
             addCacheExpires(clazz, cacheExpires);
         }
+        logger.info(cacheExpires.toString());
         //设置有效期
         super.setExpires(cacheExpires);
     }

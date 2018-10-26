@@ -16,7 +16,7 @@
         <driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</driver>
     </dest> -->
     <source>
-        <url>jdbc:mysql://10.2.2.2:3306/guanxing_medical</url>
+        <url>jdbc:mysql://10.2.2.231:3306/guanxing_medical</url>
         <username>root</username>
         <password>root</password>
         <dbtype>mysql</dbtype>

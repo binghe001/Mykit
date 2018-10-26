@@ -11,8 +11,8 @@ import io.mykit.cache.spring.redis.utils.LoadFile;
 public class RedisServiceImpl implements RedisService {
 	
 	@Override
-	@Cacheable("getRedidInfo")  
-	@CacheDuration(duration = 100)
+	@Cacheable(value="test11", key="#key")
+	@CacheDuration(duration = 10)
 	public String getRedidInfo(String key) {
 		return LoadFile.getValue(key);
 	}
